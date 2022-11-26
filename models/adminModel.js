@@ -18,7 +18,7 @@ const userSchema = new Schema({
     type: String,
     required: true
   }
-},{ collection : 'eeeusers' });
+},{ collection : 'eeeadmin' });
 
 
 // static signup method
