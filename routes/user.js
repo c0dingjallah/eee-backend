@@ -1,5 +1,4 @@
 const express = require('express')
-const cors = require('cors');
 
 // controller functions
 const { loginUser, loginAdmin, signupUser, signupAdmin } = require('../controllers/userController')
@@ -7,7 +6,7 @@ const { loginUser, loginAdmin, signupUser, signupAdmin } = require('../controlle
 const router = express.Router()
 
 // login route
-router.options('/login', cors())
+
 router.post('/login', loginUser)
 
 //admin login route
