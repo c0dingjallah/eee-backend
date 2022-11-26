@@ -5,34 +5,11 @@ const express = require('express')
 const mongoose = require('mongoose')
 const orderRoutes = require('./routes/order')
 const userRoutes = require('./routes/user')
-const app = express().use(
-  cors({
-    origin: true,
-    optionsSuccessStatus: 200,
-    credentials: true,
-  })
-);
+const app = express()
 
-
-// app.use(cors({
-//   origin: '*',    
-//   credentials: true,
-//   preflightContinue: false,     
-//   optionsSuccessStatus: 204 
-// }));
 
 // middleware
 
-// app.options('*', cors());
-
-app.options(
-  '*',
-  cors({
-    origin: true,
-    optionsSuccessStatus: 200,
-    credentials: true,
-  })
-);
 
 app.use(express.json())
 
@@ -43,7 +20,7 @@ app.use((req, res, next) => {
 
 
 // express app
-
+app.options('*', cors());
 
 // routes
 app.use('/api/order', orderRoutes)
