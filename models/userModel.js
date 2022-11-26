@@ -55,13 +55,14 @@ userSchema.statics.login = async function(lemailornum, lpassword) {
   if (!lemailornum || !lpassword) {
     throw Error('All fields must be filled')
   }
-
-  const user = await this.findOne({ lemailornum })
+  const emailornum = lemailornum;
+  const password = lpassword;
+  const user = await this.findOne({ emailornum })
   if (!user) {
     throw Error('Incorrect email or phone number')
   }
 
-  const match = await bcrypt.compare(lpassword, user.password)
+  const match = await bcrypt.compare(password, user.password)
   if (!match) {
     throw Error('Incorrect password')
   }
