@@ -9,12 +9,12 @@ const userSchema = new Schema({
     type: String,
     required: false,
   },
-  emailornum: {
+  lemailornum: {
     type: String,
     required: true,
     unique: true
   },
-  password: {
+  lpassword: {
     type: String,
     required: true
   }
