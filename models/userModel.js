@@ -50,18 +50,18 @@ userSchema.statics.signup = async function(name, emailornum, password) {
 }
 
 // static login method
-userSchema.statics.login = async function(emailornum, password) {
+userSchema.statics.login = async function(lemailornum, lpassword) {
 
-  if (!emailornum || !password) {
+  if (!lemailornum || !lpassword) {
     throw Error('All fields must be filled')
   }
 
-  const user = await this.findOne({ emailornum })
+  const user = await this.findOne({ lemailornum })
   if (!user) {
     throw Error('Incorrect email or phone number')
   }
 
-  const match = await bcrypt.compare(password, user.password)
+  const match = await bcrypt.compare(lpassword, user.password)
   if (!match) {
     throw Error('Incorrect password')
   }
