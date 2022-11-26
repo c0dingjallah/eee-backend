@@ -9,12 +9,12 @@ const userSchema = new Schema({
     type: String,
     required: false,
   },
-  lemailornum: {
+  emailornum: {
     type: String,
     required: true,
     unique: true
   },
-  lpassword: {
+  password: {
     type: String,
     required: true
   }
@@ -50,13 +50,12 @@ userSchema.statics.signup = async function(name, emailornum, password) {
 }
 
 // static login method
-userSchema.statics.login = async function(lemailornum, lpassword) {
+userSchema.statics.login = async function(emailornum, password) {
 
-  if (!lemailornum || !lpassword) {
+  if (!emailornum || !password) {
     throw Error('All fields must be filled')
   }
-  const emailornum = lemailornum;
-  const password = lpassword;
+
   const user = await this.findOne({ emailornum })
   if (!user) {
     throw Error('Incorrect email or phone number')
