@@ -38,10 +38,4 @@ mongoose.connect(process.env.MONGO_URI)
     console.log(error)
   })
 
-  app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'https://eeegroup.onrender.com/'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
+  
